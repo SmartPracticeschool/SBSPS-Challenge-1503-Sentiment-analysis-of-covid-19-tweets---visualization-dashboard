@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>Sentimental Analysis</title>
+        <link rel="stylesheet" href="https://js.arcgis.com/4.15/esri/themes/light/main.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <script src="https://js.arcgis.com/4.15/"></script>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+        <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="{% static 'js/jquery.svg3dtagcloud.min.js' %}"></script>
+        <script src="{% static 'js/jquery.svg3dtagcloud.js' %}"></script>
+        
+        <script src="{% static 'js/script.js' %}"></script>
+    </head>
+    <body onload="wordcloud({{positive}}, {{negative}}, {{neutral}}, {{country}}); mapSetting({{country}});">
+        <header>covid-19 sentiment analysis</header>
+
+        <div class="flex-container">
+            <div id="left"></div>
+
+            <div id="map-container">
+                <div id="viewDiv"></div>
+            </div>
+    
+            <div id="right">
+                <span style="margin-left: 20%; font-weight: bolder; font-variant: small-caps;">Number of Tweets</span><br/>
+                <div id="content"></div>
+            </div>
+        </div>
+
+        <div class="bottom-container">
+            <div id="btn-container">
+                <button class="buttons" id="positive" onclick="show({{country}},'positive-container')">positive</button>
+                <button class="buttons" id="neutral" onclick="show({{country}},'neutral-container')">neutral</button>
+                <button class="buttons" id="negative" onclick="show({{country}},'negative-container')">negative</button>
+            </div>
+
+            <div class="container">
+                <div id="positive-container" class="box stack-top"></div>
+                <div id="neutral-container" class="box stack-top"></div>
+                <div id="negative-container" class="box stack-top"></div>
+            </div>
+            
+            <div id="team-name">
+                <span style="display: inline-block;text-align: center; font-weight: bolder;">Code Blasters</span> <br/>
+                Shairam R <br/>
+                Veerakumar N <br/>
+                Shasti ayappan R
+            </div>
+
+        </div>
+        
+        
+    </body>
+</html>
