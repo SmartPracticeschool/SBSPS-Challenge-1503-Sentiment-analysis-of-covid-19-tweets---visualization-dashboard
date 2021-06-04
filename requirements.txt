@@ -2,5 +2,5 @@ tweepy==3.8.0
 pandas==1.0.1
 tweet-preprocessor==0.6.0
 textblob==0.15.3
-Django==3.0.5
+Django==3.1.9
 Jinja2==2.11.1
